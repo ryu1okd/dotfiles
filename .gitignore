@@ -1,4 +1,7 @@
 .idea
 .DS_Store
 Session.vim
+bower_components
+node_modules
+npm-debug.log
 *.swp

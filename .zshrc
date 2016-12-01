@@ -1,5 +1,8 @@
 # ENV
 PATH=$HOME/.nodebrew/current/bin:$PATH
+PATH=/Applications/Karabiner.app/Contents/Library/bin:$PATH
+
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/R1/.ssh/gladcube/r-okada-test-gcp.json
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -32,6 +35,11 @@ PROMPT="
  $ "
 
  PROMPT2='[%n]> '
+
+# cd and ls
+function cd() {
+  builtin cd $@ && ls;
+}
 
 # initial keyboard setting
 # alias onkeyboard="sudo kextload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/"

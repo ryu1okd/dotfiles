@@ -1,5 +1,4 @@
 filetype plugin indent on
-syntax enable
 
 nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
 noremap j gj
@@ -15,6 +14,9 @@ nnoremap gc '[v']
 vnoremap gc :<C-u>normal gc<Enter>
 onoremap gc :<C-u>normal gc<Enter>
 
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,Sjis,euc-jp
 set backspace=eol,indent,start
 set showmode
 set showcmd
@@ -31,36 +33,40 @@ set ignorecase
 set smartcase
 set autoindent
 set mouse=a
+set title
+set noswapfile
+set nowrap
+set clipboard+=unnamed
 
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#66666
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=DarkGreen
 au BufNewFile,BufRead * match ZenkakuSpace /　/
 
-command! Cp932 edit ++enc=cp932
-command! Eucjp edit ++ enc=euc-jp
-command! Iso2022jp edit ++enc=iso-2022-jp
-command! Utf8 edit ++enc=utf-8
-command! Jis Iso2022jp
-command! Sjis Cp932
+"command! Cp932 edit ++enc=cp932
+"command! Eucjp edit ++ enc=euc-jp
+"command! Iso2022jp edit ++enc=iso-2022-jp
+"command! Utf8 edit ++enc=utf-8
+"command! Jis Iso2022jp
+"command! Sjis Cp932
 
 "---------------------------
 " Start Neobundle Settings.
 "---------------------------
 " bundleで管理するディレクトリを指定
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" NERDTree
-" NeoBundle 'scrooloose/nerdtree'
-" NeoBundle 'Shougo/unite.vim'
-" NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'gkz/vim-ls'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'derekwyatt/vim-scala'
@@ -85,10 +91,6 @@ if executable('ag')
 endif
 
 call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
 
 NeoBundleCheck
 
