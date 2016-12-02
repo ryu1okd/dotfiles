@@ -27,14 +27,27 @@ export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
 # current dir name and user name
-autoload colors
+autoload -U colors
 colors
 
-PROMPT="
- [%n] %{${fg[yellow]}%}%~%{${reset_color}%}
+# vcs_infoロード
+autoload -Uz vcs_info
+# 表示フォーマットの指定
+# %b ブランチ名
+# %a アクション名
+zstyle ':vcs_info:*' formats '%{'${fg[green]}'%}[%b]%{'${reset_color}'%}'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+# プロンプト表示直前にvcs_info呼び出し
+setopt prompt_subst
+precmd() {
+  vcs_info
+  PROMPT="
+ [%n] %{${fg[yellow]}%}%~%{${reset_color}%} ${vcs_info_msg_0_}
  $ "
+}
 
- PROMPT2='[%n]> '
+
+PROMPT2='[%n]> '
 
 # cd and ls
 function cd() {
@@ -60,5 +73,4 @@ export CLICOLOR=true
 # 補完候補に色を付ける
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.include.zsh ] && source ~/.include.zsh
