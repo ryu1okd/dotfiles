@@ -1,8 +1,5 @@
 # ENV
 PATH=$HOME/.nodebrew/current/bin:$PATH
-PATH=/Applications/Karabiner.app/Contents/Library/bin:$PATH
-
-export GOOGLE_APPLICATION_CREDENTIALS=/Users/R1/.ssh/gladcube/r-okada-test-gcp.json
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile

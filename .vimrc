@@ -47,10 +47,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/R1/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/Users/R1/.cache/dein')
+call dein#begin('~/.vim/dein')
 
 " Let dein manage dein
 " Required:
@@ -67,7 +67,7 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('rking/ag.vim')
 " Color Theme
-call dein#add('w0ng/vim-hybrid')
+" call dein#add('w0ng/vim-hybrid')
 
 " Required:
 call dein#end()
@@ -84,4 +84,5 @@ endif
 
 " color theme 適用
 set background=dark
-colorscheme hybrid
+"colorscheme hybrid
+colorscheme slate
