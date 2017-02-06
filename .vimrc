@@ -9,6 +9,10 @@ noremap gk k
 " 検索強調を画面リロード時に消す
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+" ノーマルモードで改行を挿入する
+noremap <C-j> o<ESC>
+noremap <CR> i<CR><ESC>
+
 " 設定
 set encoding=utf-8
 set fileencoding=utf-8
