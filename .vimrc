@@ -71,7 +71,7 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('rking/ag.vim')
 " Color Theme
-" call dein#add('w0ng/vim-hybrid')
+call dein#add('w0ng/vim-hybrid')
 
 " Required:
 call dein#end()
@@ -88,5 +88,5 @@ endif
 
 " color theme 適用
 set background=dark
-"colorscheme hybrid
-colorscheme slate
+colorscheme hybrid
+"colorscheme slate
