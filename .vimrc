@@ -70,6 +70,8 @@ call dein#add('editorconfig/editorconfig-vim')
 call dein#add('tpope/vim-fugitive')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('rking/ag.vim')
+call dein#add('kannokanno/previm')
+call dein#add('tyru/open-browser.vim')
 " Color Theme
 call dein#add('w0ng/vim-hybrid')
 
@@ -85,6 +87,9 @@ if dein#check_install()
   call dein#install()
 endif
 "-----------------------------------------
+
+" Previm
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 " color theme 適用
 set background=dark
