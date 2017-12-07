@@ -36,10 +36,13 @@ set nowrap
 set clipboard+=unnamed
 set ignorecase
 set smartcase
+set ruler
 
 set cursorline
 set cursorcolumn
 
+" netrw
+let g:netrw_browse_split = 0
 
 " 全角文字をハイライト
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=DarkGreen

@@ -1,0 +1,9 @@
+set hlsearch
+
+set ignorecase
+set smartcase
+set cursorline
+set cursorcolumn
+
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap x "_x
