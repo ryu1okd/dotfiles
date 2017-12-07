@@ -76,7 +76,7 @@ call dein#add('rking/ag.vim')
 call dein#add('kannokanno/previm')
 call dein#add('tyru/open-browser.vim')
 " Color Theme
-call dein#add('w0ng/vim-hybrid')
+"call dein#add('w0ng/vim-hybrid')
 
 " Required:
 call dein#end()
@@ -96,5 +96,5 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 " color theme 適用
 set background=dark
-colorscheme hybrid
-"colorscheme slate
+"colorscheme hybrid
+colorscheme slate
