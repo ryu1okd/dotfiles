@@ -5,6 +5,7 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+noremap / /\v
 
 " 検索強調を画面リロード時に消す
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
@@ -34,7 +35,7 @@ set mouse=a
 set title
 set noswapfile
 set nowrap
-set clipboard+=unnamed
+set clipboard=unnamed
 set ignorecase
 set smartcase
 set ruler
@@ -43,11 +44,15 @@ set cursorline
 set cursorcolumn
 
 " netrw
-let g:netrw_browse_split = 0
+" let g:netrw_browse_split = 0
+let g:netrw_list_hide= '.DS_Store'
 
 " 全角文字をハイライト
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=DarkGreen
 au BufNewFile,BufRead * match ZenkakuSpace /　/
+
+" PlantUML Viewer を立ち上げる
+"au FileType plantuml command! OpenUml :!/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window %
 
 "---------- プラグイン管理 Dein ------------
 if &compatible
@@ -70,14 +75,16 @@ call dein#add('chase/vim-ansible-yaml')
 call dein#add('derekwyatt/vim-scala')
 call dein#add('digitaltoad/vim-jade')
 call dein#add('wavded/vim-stylus')
-call dein#add('editorconfig/editorconfig-vim')
 call dein#add('tpope/vim-fugitive')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('rking/ag.vim')
 call dein#add('kannokanno/previm')
 call dein#add('tyru/open-browser.vim')
+call dein#add('aklt/plantuml-syntax')
+call dein#add('leafgarland/typescript-vim')
+call dein#add('rust-lang/rust.vim')
 " Color Theme
-"call dein#add('w0ng/vim-hybrid')
+call dein#add('cocopon/iceberg.vim')
 
 " Required:
 call dein#end()
@@ -96,6 +103,6 @@ endif
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 " color theme 適用
-set background=dark
-"colorscheme hybrid
-colorscheme slate
+"set background=dark
+colorscheme iceberg
+"colorscheme slate

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+  echo "no profile specified" 1>&2
+    exit 1
+fi
+
+case ${1} in
+
+  --stg)
+    env=sbj-stg
+    ;;
+
+  --prd)
+    env=sbj-prd
+    ;;
+
+  *)
+    echo "[ERROR] Invalid env option '${1}'"
+    usage
+    exit 1
+    ;;
+esac
+
+token=$(get-otp)
+
+aws-vault exec -t $token $env -- ${@:2}

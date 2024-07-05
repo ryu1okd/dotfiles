@@ -1,0 +1,4 @@
+#!/bin/bash
+#OP_TOKEN=`op signin --raw classmethod`
+#op get totp --session "$OP_TOKEN" AWS-CM | tr -d '\n'
+op item get AWS-CM --otp
